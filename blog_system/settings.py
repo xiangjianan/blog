@@ -25,7 +25,8 @@ SECRET_KEY = 'z6e+*fc#qxdzj73$#-0b%^d(*x*z0uuf#*037o)()*uuuv%h^m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+STATIC_ROOT = '/root/static/blog_static/'
 
 # Application definition
 
@@ -85,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_blog',  # 要连接的数据库，连接前需要创建好
-        'USER': '***',  # 连接数据库的用户名
-        'PASSWORD': '******',  # 连接数据库的密码
+        'USER': 'root',  # 连接数据库的用户名
+        'PASSWORD': '123456',  # 连接数据库的密码
         'HOST': '127.0.0.1',  # 连接主机，默认本级
         'PORT': 3306  # 端口 默认3306
     }

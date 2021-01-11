@@ -1,0 +1,89 @@
+/* 模态框 */
+.modal-sm {
+    width: 450px !important;
+}
+
+.modal-content {
+    padding: 20px 50px;
+}
+
+/* 子绝父相 */
+.form-group {
+    position: relative;
+    margin-top: 3px;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: darkgray;
+}
+
+/* 输入框 */
+.form-group input {
+    height: 42px;
+}
+
+/* 验证码 */
+.verify-code-login, .verify-code-reg {
+    padding: 0 !important;
+}
+
+.verify-code-login > a, .verify-code-reg > a {
+    display: block;
+    float: right;
+}
+
+.verify-code-login > a > img, .verify-code-reg > a > img {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+/* 头像 */
+.avatar-reg {
+    padding: 0 !important;
+    height: 100px;
+}
+
+.avatar-reg > label {
+    width: 100%;
+}
+
+.avatar-reg > label img {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #eeeeee;
+    border-radius: 40px;
+}
+
+.avatar-reg > input {
+    display: none !important;
+}
+
+.avatar-header a {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.avatar-header img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 12px;
+}
+
+/* 动画 */
+.btn, .btn:hover, a, a:hover {
+    /*transition: 0.3s all cubic-bezier(.46, 1, .23, 1.52) !important;*/
+    transition: 0.3s all;
+}
+.article-item{
+    transition: 0.3s all;
+}
+.article-item:hover{
+    /*background-color: rgba(240,240,240,0.4)!important;*/
+    box-shadow: 3px 5px 15px rgba(0,0,0,0.3);;
+    transition: 0.3s all;
+}

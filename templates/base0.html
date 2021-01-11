@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}
+        <!-- 标题 -->
+    {% endblock %}
+    <link href="/static/blog/reset.css" rel="stylesheet">
+    <link href="/static/blog/auth.css" rel="stylesheet">
+    <link href="/static/blog/article.css" rel="stylesheet">
+    <link href="/static/blog/fonts/fonts.css" rel="stylesheet">
+    <link href="/static/blog/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/blog/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/static/blog/jquery/jquerysession.js"></script>
+    <script src="/static/blog/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="/static/blog/auth.js"></script>
+    <script src="/static/blog/article.js"></script>
+    <script charset="utf-8" src="/static/blog/kindeditor/kindeditor-all.js"></script>
+</head>
+<body>
+<div class="container">
+    {% block body %}
+        <!-- 页面主体 -->
+    {% endblock %}
+</div>
+</body>
+</html>

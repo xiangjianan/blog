@@ -1,0 +1,53 @@
+{% extends "base0.html" %}
+
+{% block title %}
+    <title>个人站点</title>
+{% endblock %}
+
+{% block body %}
+    <!-- 页面顶部导航栏 -->
+    <div class="header">
+        {% load my_tags %}
+        {% get_header_style request %}
+    </div>
+    <!-- 左侧边栏 -->
+    <div class="col-md-3">
+        {% load my_tags %}
+        {% get_side_left_style request username %}
+    </div>
+    <!-- 文章列表 -->
+    <div class="col-md-9">
+        <span class="text-muted">全部文章</span>
+        <hr>
+        <div class="article-list">
+            {% for article in current_page %}
+                <div class="article-item clearfix bg-warning">
+                    <div class="col-md-12">
+                        <div class="media-right view-title">
+                            <p>
+                                <a href="/{{ article.user.username }}/articles/{{ article.id }}">{{ article.title }}</a>
+                            </p>
+                            <span>
+                            {{ article.desc }}
+                        </span>
+                        </div>
+                        <div class="pull-left text-muted view-other">
+                            <a href="/{{ article.user }}/">
+                                <img src="/media/{{ article.user.avatar }}">
+                                {{ article.user }}
+                            </a>
+                            <span class="view-other-time">{{ article.create_time|date:'Y年m月d日' }}</span>
+                            <span class="pull-right iconfont">&#xe630; {{ article.comment_count }}</span>
+                            <span class="pull-right iconfont">&#xe626; {{ article.like_count }}</span>
+                            <span class="pull-right iconfont">&#xe601; {{ article.view_count }}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <!-- 分页器 -->
+            {% load my_tags %}
+            {% get_paginator_style current_page page_range current_page_num %}
+        </div>
+    </div>
+{% endblock %}

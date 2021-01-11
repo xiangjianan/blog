@@ -1,0 +1,31 @@
+<nav aria-label="Page navigation" class="center-block text-center">
+    <ul class="pagination">
+        <!-- 上一页 -->
+        {% if current_page.has_previous %}
+            <li>
+                <a href="?page={{ current_page.previous_page_number }}" aria-label="Next">
+                    <span aria-hidden="true" class="glyphicon glyphicon-menu-left"></span>
+                </a>
+            </li>
+        {% endif %}
+
+        <!-- 所有分页 -->
+        {% for i in page_range %}
+            <!-- 当前页：active -->
+            {% if current_page_num == i %}
+                <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+            {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!-- 下一页 -->
+        {% if current_page.has_next %}
+            <li>
+                <a href="?page={{ current_page.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true" class="glyphicon glyphicon-menu-right"></span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,87 @@
+<div>
+    <!-- 个人站点标题 -->
+    <a href="/{{ username }}/">
+        <span class="h3 text-muted center-block text-center">{{ blog_site.title }}</span>
+    </a>
+    <!-- 判断是否为当前用户站点 -->
+    {% if username == request.user.username %}
+        <div>
+            <a class="btn btn-block btn-warning glyphicon glyphicon-edit text-muted"
+               href="/{{ username }}/article_manager/article_create/">发布新文章</a>
+        </div>
+    {% endif %}
+    <hr>
+    <!-- 标签 -->
+    <div class="panel panel-warning">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse"
+                   href="#tag_list">
+                    我的标签
+                </a>
+            </h4>
+        </div>
+        <div id="tag_list" class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                {% for tag in tag_list %}
+                    <div class="small">
+                        <p>
+                            <a href="/{{ username }}/tag/{{ tag.title }}">
+                                {{ tag.title }}
+                                ({{ tag.c }})
+                            </a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse"
+                   href="#time_list">
+                    每月文章
+                </a>
+            </h4>
+        </div>
+        <div id="time_list" class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                {% for time in time_list %}
+                    <div class="small">
+                        <p>
+                            <a href="/{{ username }}/time/{{ time.y_m_time|date:'Y-m' }}">
+                                {{ time.y_m_time|date:'Y年m月' }}
+                                ({{ time.c }})
+                            </a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse"
+                   href="#article_list_hot">
+                    阅读排行
+                </a>
+            </h4>
+        </div>
+        <div id="article_list_hot" class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                {% for article in article_list_hot %}
+                    <div class="small">
+                        <p>
+                            <span class="text-danger">{{ forloop.counter }}.</span>
+                            <a href="/{{ article.user.username }}/articles/{{ article.id }}">
+                                {{ article.title }}
+                            </a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

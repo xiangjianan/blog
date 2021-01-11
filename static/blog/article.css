@@ -1,0 +1,155 @@
+/* 评论 */
+.well {
+    padding: 5px 5px 0px 20px !important;
+    margin: 2px !important;
+    background-color: #fafafa !important;
+}
+
+/* 欢迎页 */
+.welcome, .welcome-login {
+    display: none;
+}
+
+/* 主页 */
+.article-list {
+    padding: 20px !important;
+}
+
+.article-item {
+    border-radius: 20px !important;
+}
+
+.article-item .view-img {
+    width: 100%;
+    height: 150px;
+}
+
+.article-item .view-img img {
+    margin: 10px !important;
+}
+
+.article-item .view-title {
+    width: 100%;
+    height: 120px;
+    padding: 10px 0;
+}
+
+.article-item .view-title p {
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.article-item .view-title span {
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    padding-top: 10px;
+}
+
+.view-other {
+    width: 100%;
+    height: 30px;
+}
+
+.view-other img {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+}
+
+.view-other span {
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.view-other a {
+    font-weight: bold;
+    font-size: 12px !important;
+}
+
+/* 右侧 */
+.side-right-header {
+    width: 100%;
+    height: 180px;
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
+}
+
+.side-right-header .btn-login {
+    margin-top: 20px;
+    width: 130px;
+}
+
+.side-right-header img {
+    width: 90px;
+    height: 90px;
+    margin-top: 15px !important;
+    border-radius: 10px;
+}
+
+.article-item-right {
+    /*background-color: rgba(240,240,240,0.8);*/
+    width: 100%;
+    /*height: 90px;*/
+    border-bottom: 1px solid #eeeeee;
+}
+
+.article-item-right .view-title {
+    width: 100%;
+    /*height: 40px;*/
+    padding: 0;
+    margin: 0;
+}
+
+.article-item-right .view-title .title {
+    line-height: 40px;
+}
+
+.article-item-right .view-title .avatar {
+    float: right;
+}
+
+.article-item-right .view-title img {
+    width: 24px;
+    height: 24px;
+    margin-top: 9px;
+    border-radius: 12px;
+}
+
+.article-item-right .view-other {
+    width: 100%;
+    height: 30px;
+}
+
+.article-item-right .view-title p {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.article-item-right .view-other img {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+}
+
+.article-item-right .view-other span {
+    margin-left: 20px;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+/* 发布按钮 */
+#submit-comment, .btn-send-article {
+    margin-top: 10px;
+    width: 200px!important;
+}

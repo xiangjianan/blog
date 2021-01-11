@@ -1,0 +1,168 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- logo + 博客系统 -->
+        <div class="navbar-header">
+            <a class="navbar-brand iconfont" href="/home/">&#xe62e; 博客系统</a>
+        </div>
+        <!-- 用户登录状态 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- 未登录 -->
+            {% if request.user.is_anonymous %}
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- 登录模态框 -->
+                    <li>
+                        <a href="#" data-toggle="modal" data-target=".login-modal" class="auth">登录</a>
+                        <div class="modal fade login-modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <!-- 登录表单 -->
+                                    <form class="clearfix">
+                                        <p class="h3 text-muted">用户登录</p>
+                                        <hr>
+                                        {% csrf_token %}
+                                        {% for foo in form_login %}
+                                            <div class="form-group">
+                                                <label for="{{ foo.auto_id }}"
+                                                       class="iconfont text-muted">{{ foo.label|safe }}</label>
+                                                {{ foo }}
+                                                <span class="text-danger pull-right error small"></span>
+                                            </div>
+                                        {% endfor %}
+                                        <!-- 验证码 -->
+                                        <div class="form-group clearfix">
+                                            <div class="form-group col-md-6 verify-code-login">
+                                                <label for="verify-code-str-login"
+                                                       class="iconfont text-muted">&#xe627;</label>
+                                                <input id="verify-code-str-login" type="text"
+                                                       class="form-control"
+                                                       placeholder="请输入验证码">
+                                                <span class="text-danger pull-right error small"></span>
+                                            </div>
+                                            <div class="col-md-3 col-md-offset-3 verify-code-login">
+                                                <a href="javascript:0">
+                                                    <img class="verify-code-img" src="/verify_code/" alt="验证码">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- auth.js -> ajax -->
+                                        <div class="form-group">
+                                            <span id="submit-login" class="btn btn-info form-control">登录</span>
+                                        </div>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- 注册模态框 -->
+                    <li>
+                        <a href="#" data-toggle="modal" data-target=".reg-modal" class="auth">注册</a>
+                        <div class="modal fade reg-modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <!-- 注册表单 -->
+                                    <form id="form_reg" class="clearfix">
+                                        <p class="h3 text-muted">注册新用户</p>
+                                        <hr>
+                                        {% csrf_token %}
+                                        <!-- 头像 -->
+                                        <div class="form-group avatar-reg">
+                                            <label for="id_avatar_reg">
+                                                        <span class="col-md-6 col-md-offset-3">
+                                                            <img class="center-block" src="/media/avatars/default.png">
+                                                            <span class="small text-muted text-center center-block">点击图标选择头像</span>
+                                                        </span>
+                                            </label>
+                                            <input type="file" id="id_avatar_reg">
+                                        </div>
+                                        <!-- forms组件 -->
+                                        {% for foo in form_reg %}
+                                            <div class="form-group">
+                                                <label for="{{ foo.auto_id }}"
+                                                       class="iconfont text-muted">{{ foo.label|safe }}</label>
+                                                {{ foo }}
+                                                <span class="text-danger pull-right error small"></span>
+                                            </div>
+                                        {% endfor %}
+                                        <!-- 验证码 -->
+                                        <div class="form-group clearfix">
+                                            <div class="form-group col-md-6 verify-code-reg">
+                                                <label for="verify-code-str-reg"
+                                                       class="iconfont text-muted">&#xe627;</label>
+                                                <input id="verify-code-str-reg" type="text" class="form-control"
+                                                       placeholder="请输入验证码">
+                                                <span class="text-danger pull-right error small"></span>
+                                            </div>
+                                            <div class=" col-md-3 col-md-offset-3 verify-code-reg">
+                                                <a href="javascript:0">
+                                                    <img class="verify-code-img" src="/verify_code/" alt="验证码">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- auth.js -> ajax -->
+                                        <div class="form-group">
+                                            <br>
+                                            <span id="submit-reg" class="btn btn-info form-control">注册</span>
+                                        </div>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 已登录 -->
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- 用户信息 -->
+                    <li class="avatar-header">
+                        <a href="/{{ request.user.username }}/">
+                            <img src="/media/{{ request.user.avatar }}">
+                        </a>
+                    </li>
+                    <!-- 修改站点标题模态框 -->
+                    <li>
+                        <div class="modal fade change-site-title-modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <form class="clearfix">
+                                        <p class="h3 text-muted">修改站点标题</p>
+                                        <hr>
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input id="id_site_title" type="text" class="form-control"
+                                                   site_id="{{ blog_site.pk }}" placeholder="输入新的站点标题"
+                                                   value="{{ blog_site.title }}">
+                                        </div>
+                                        <!-- auth.js -> ajax -->
+                                        <div class="form-group">
+                                            <span id="submit-change-site-title"
+                                                  class="btn btn-info form-control">修改</span>
+                                        </div>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- 下拉菜单 -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">{{ request.user.username }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/{{ request.user.username }}/">我的站点</a></li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target=".change-site-title-modal"
+                                   class="change-site">修改站点标题</a>
+                            </li>
+                            <li><a href="/{{ request.user.username }}/article_manager/">文章管理</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout/">安全退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,67 @@
+{% extends "base0.html" %}
+
+{% block title %}
+    <title>主页</title>
+{% endblock %}
+
+{% block body %}
+    <!-- 页面顶部导航栏 -->
+    <div class="header">
+        {% load my_tags %}
+        {% get_header_style request %}
+    </div>
+    <!-- 欢迎页 -->
+    {% if request.session.welcome == 'first' %}
+        <div class="jumbotron welcome">
+            <h1>欢迎使用博客系统</h1>
+            <p>注册并登录以获取完整使用体验</p>
+            <p><span id="welcome-btn" class="btn btn-primary btn-lg">我知道了</span></p>
+        </div>
+    {% endif %}
+    <!-- 文章列表 -->
+    <div class="col-md-9">
+        <span class="text-muted">最新文章</span>
+        <div class="article-list">
+            {% for article in current_page %}
+                <div class="article-item clearfix bg-info">
+                    <div class="col-md-3">
+                        <div class="view-img">
+                            <a href="/{{ article.user.username }}/articles/{{ article.id }}">
+                                <img src="/static/blog/image/blog.png" height="130">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="media-right view-title">
+                            <p>
+                                <a href="/{{ article.user.username }}/articles/{{ article.id }}">{{ article.title }}</a>
+                            </p>
+                            <span>
+                            {{ article.desc }}
+                        </span>
+                        </div>
+                        <div class="pull-left text-muted view-other">
+                            <a href="/{{ article.user }}/">
+                                <img src="/media/{{ article.user.avatar }}">
+                                {{ article.user }}
+                            </a>
+                            <span class="">{{ article.create_time|date:'Y年m月d日' }}</span>
+                            <span class="pull-right iconfont">&#xe630; {{ article.comment_count }}</span>
+                            <span class="pull-right iconfont">&#xe626; {{ article.like_count }}</span>
+                            <span class="pull-right iconfont">&#xe601; {{ article.view_count }}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <!-- 分页器 -->
+            {% load my_tags %}
+            {% get_paginator_style current_page page_range current_page_num %}
+        </div>
+    </div>
+    <!-- 右侧边栏 -->
+    <div class="col-md-3">
+        {% load my_tags %}
+        {% get_side_right_style request %}
+    </div>
+{% endblock %}

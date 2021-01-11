@@ -1,0 +1,50 @@
+{% extends "base0.html" %}
+
+{% block title %}
+    <title>文章管理</title>
+{% endblock %}
+
+{% block body %}
+    <!-- 页面顶部导航栏 -->
+    <div class="header">
+        {% load my_tags %}
+        {% get_header_style request %}
+    </div>
+    <!-- 左侧边栏 -->
+    <div class="col-md-3">
+        {% load my_tags %}
+        {% get_side_left_manager_style request username %}
+    </div>
+    <!-- 文章列表 -->
+    <div class="col-md-9">
+        <span class="text-muted">文章管理</span>
+        <hr>
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr class="success text-muted">
+                <th>标题</th>
+                <th>日期</th>
+                <th>评论数</th>
+                <th>阅读数</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for article in current_page %}
+                <tr class="small">
+                    <td><a href="/{{ article.user.username }}/articles/{{ article.id }}">{{ article.title }}</a></td>
+                    <td>{{ article.create_time|date:'Y年m月d日' }}</td>
+                    <td>{{ article.comment_count }}</td>
+                    <td>{{ article.view_count }}</td>
+                    <th><a href="/{{ username }}/article_manager/article_change/{{ article.id }}">编辑</a></th>
+                    <th><a href="/{{ username }}/article_manager/article_delete/{{ article.id }}/">删除</a></th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!-- 分页器 -->
+        {% load my_tags %}
+        {% get_paginator_style current_page page_range current_page_num %}
+    </div>
+{% endblock %}

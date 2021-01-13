@@ -74,24 +74,24 @@ WSGI_APPLICATION = 'blog_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# todo:配置默认数据库
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_blog',  # 要连接的数据库，连接前需要创建好
-        'USER': 'root',  # 连接数据库的用户名
-        'PASSWORD': '12345678',  # 连接数据库的密码
-        'HOST': '0.0.0.0',  # 连接主机，默认本级
-        'PORT': 3306  # 端口 默认3306
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# todo:配置默认数据库
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'db_blog',  # 要连接的数据库，连接前需要创建好
+#         'USER': 'root',  # 连接数据库的用户名
+#         'PASSWORD': '12345678',  # 连接数据库的密码
+#         'HOST': '0.0.0.0',  # 连接主机，默认本级
+#         'PORT': 3306  # 端口 默认3306
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

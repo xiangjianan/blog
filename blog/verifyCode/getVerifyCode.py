@@ -26,10 +26,10 @@ def get_verify_code_img(request):
     # 生成验证码图片
     if system() == 'Windows':
         path_ttc = 'C:\\Windows\\Fonts\\msyh.ttc'
-    else:
+    elif system() == 'Darwin':
         path_ttc = '/System/Library/Fonts/Supplemental/Songti.ttc'
-    # centos
-    path_ttc = '/usr/share/fonts/dejavu/DejaVuSans.ttf'
+    else:
+        path_ttc = '/usr/share/fonts/dejavu/DejaVuSans.ttf'
     font = ImageFont.truetype(path_ttc, 30)
     for i in range(4):
         word = get_random_word()

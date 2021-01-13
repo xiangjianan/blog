@@ -1,0 +1,21 @@
+.go-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 90%;
+    right: 5%;
+    border-radius: 50px;
+    background-color: rgba(0,0,0,0.2);
+}
+.go-top a{
+    display: block;
+    color: white;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.go-top a:hover {
+    color: white;
+}

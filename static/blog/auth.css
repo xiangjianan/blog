@@ -84,6 +84,7 @@
 }
 .article-item:hover{
     /*background-color: rgba(240,240,240,0.4)!important;*/
-    box-shadow: 3px 5px 15px rgba(0,0,0,0.3);;
+    transform: translateX(10px);
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
     transition: 0.3s all;
 }

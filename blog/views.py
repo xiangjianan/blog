@@ -235,7 +235,8 @@ def article_create(request, username):
         # 添加文章表记录
         user_id = UserInfo.objects.filter(username=username).first().pk
         article_obj = Article.objects.create(title=title, content=str(soup), desc=desc, user_id=user_id)
-        article_obj.tag.add(*tag_obj_list)
+        if tag_obj_list:
+            article_obj.tag.add(*tag_obj_list)
         return redirect('/' + username + '/')
     return render(request, 'user-article-create.html', locals())
 
@@ -277,11 +278,13 @@ def article_submit(request, username):
     tag_list = request.POST.get('tag').split(' ')
     tag_obj_list = []
     for tag in tag_list:
-        tag_obj = Tag.objects.filter(blog_site__userinfo__username=username).filter(title=tag).first()
-        if not tag_obj:
-            blog_site_obj = BlogSite.objects.filter(userinfo__username=username).first()
-            tag_obj = Tag.objects.create(title=tag, blog_site=blog_site_obj)
-        tag_obj_list.append(tag_obj)
+        # 标签不能为空
+        if tag:
+            tag_obj = Tag.objects.filter(blog_site__userinfo__username=username).filter(title=tag).first()
+            if not tag_obj:
+                blog_site_obj = BlogSite.objects.filter(userinfo__username=username).first()
+                tag_obj = Tag.objects.create(title=tag, blog_site=blog_site_obj)
+            tag_obj_list.append(tag_obj)
     soup = BeautifulSoup(content, 'html.parser')
     # 防止xss攻击
     for tag in soup.find_all():

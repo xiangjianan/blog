@@ -77,14 +77,15 @@
 /* 动画 */
 .btn, .btn:hover, a, a:hover {
     /*transition: 0.3s all cubic-bezier(.46, 1, .23, 1.52) !important;*/
-    transition: 0.3s all;
+    transition: 0.4s all;
 }
 .article-item{
-    transition: 0.3s all;
+    transition: 0.4s all;
 }
 .article-item:hover{
     /*background-color: rgba(240,240,240,0.4)!important;*/
-    transform: translateX(10px);
-    /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
-    transition: 0.3s all;
+    /*opacity: 0.9;*/
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: 0.4s all;
 }

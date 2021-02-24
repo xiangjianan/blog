@@ -5,7 +5,7 @@
         <span class="center-block text-center text-muted">DEMO演示版</span>
         <span class="center-block text-center text-muted">测试账号:test 密码:123456</span>
         <a href="#" data-toggle="modal" data-target=".login-modal" class="auth">
-            <span class="btn btn-info center-block text-center btn-login">登录</span>
+            <span class="btn btn-default center-block text-center btn-login">登录</span>
         </a>
     </div>
 {% else %}
@@ -14,7 +14,7 @@
             <img src="/media/{{ request.user.avatar }}" class="center-block text-center">
         </a>
         <a href="/{{ request.user.username }}/">
-            <span class="btn btn-warning center-block text-center btn-login">我的个人站点</span>
+            <span class="btn btn-default center-block text-center btn-login">我的个人站点</span>
         </a>
     </div>
 {% endif %}

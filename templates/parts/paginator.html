@@ -13,7 +13,7 @@
         {% for i in page_range %}
             <!-- 当前页：active -->
             {% if current_page_num == i %}
-                <li class="active"><a href="?page={{ i }}">{{ i }}</a></li>
+                <li class="active"><a href="?page={{ i }}" style="color: #eeeeee!important;">{{ i }}</a></li>
             {% else %}
                 <li><a href="?page={{ i }}">{{ i }}</a></li>
             {% endif %}

@@ -6,13 +6,13 @@
     <!-- 判断是否为当前用户站点 -->
     {% if username == request.user.username %}
         <div>
-            <a class="btn btn-block btn-warning glyphicon glyphicon-edit text-muted"
+            <a class="btn btn-block btn-default glyphicon glyphicon-edit text-muted"
                href="/{{ username }}/article_manager/article_create/">发布新文章</a>
         </div>
     {% endif %}
     <hr>
     <!-- 标签 -->
-    <div class="panel panel-warning">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse"
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-warning">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse"
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-warning">
+    <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse"

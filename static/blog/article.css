@@ -17,6 +17,9 @@
     color: #fff;
     text-shadow: rgba(1,1,1,0.6) 1px 1px 30px;
 }
+.welcome p.iconfont {
+    text-shadow: rgba(1,1,1,0.3) 1px 1px 30px;
+}
 .welcome p span{
     text-shadow: none;
 }

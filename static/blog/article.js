@@ -6,6 +6,7 @@ $(function () {
     $('.article-like').click(function () {
         let is_like = $(this).hasClass('is-like');
         let article_like_count = $(this).children('.article-like-count')
+        console.log($('[name="csrfmiddlewaretoken"]').val())
         $.ajax({
             url: '/article_like/',
             type: 'post',

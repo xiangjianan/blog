@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-    background-color: #ECECED!important;
+    background-color: #E4EBF5!important;
 }
 
 ol, ul, li {
@@ -63,12 +63,20 @@ a:hover{
 }
 
 .navbar-default {
-    background-color: #dedede!important;
-    border-color: #dedede!important;
+    background-color: #e2eaf3!important;
+    border-color: #e2eaf3!important;
 }
 .bg-info{
-    background-color: #f7f7f7!important;
+    background-color: #f1f5f8 !important;
 }
 .jumbotron {
     background-color: #fafafa!important;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background-color: #f1f5f8!important;
+}
+.btn-default{
+    background-color: #f1f5f8!important;
+}.btn-default:hover{
+    background-color: #f7f7f7!important;
 }

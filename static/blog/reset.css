@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-    background-color: #E4EBF5!important;
+    background-color: #E4EBF5 !important;
 }
 
 ol, ul, li {
@@ -55,28 +55,42 @@ table {
 }
 
 a, a:hover {
-    color: #333333!important;
+    color: #333333 !important;
     text-decoration: none !important;
 }
-a:hover{
-    color: #F5810A!important;
+
+a:hover {
+    color: #F5810A !important;
 }
 
 .navbar-default {
-    background-color: #e2eaf3!important;
-    border-color: #e2eaf3!important;
+    background-color: #e2eaf3 !important;
+    border-color: #e2eaf3 !important;
 }
-.bg-info{
+
+.bg-info {
     background-color: #f1f5f8 !important;
 }
+
 .jumbotron {
-    background-color: #fafafa!important;
+    background-color: #fafafa !important;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-    background-color: #f1f5f8!important;
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    background-color: #f1f5f8 !important;
 }
-.btn-default{
-    background-color: #f1f5f8!important;
-}.btn-default:hover{
-    background-color: #f7f7f7!important;
+
+.btn-default {
+    background-color: #f1f5f8 !important;
+}
+
+.btn-default:hover {
+    background-color: #f7f7f7 !important;
+}
+
+.panel-default > .panel-heading {
+    background-color: #E8EfF9!important;
+}
+.panel{
+    background-color: #E0E8F1!important;
 }

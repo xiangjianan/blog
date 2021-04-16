@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
-    background-color: #E4EBF5 !important;
+    background-color: #E4EBF8 !important;
 }
 
 ol, ul, li {
@@ -64,12 +64,12 @@ a:hover {
 }
 
 .navbar-default {
-    background-color: #e2eaf3 !important;
+    background-color: rgba(0,0,0,0.03) !important;
     border-color: #e2eaf3 !important;
 }
 
 .bg-info {
-    background-color: #f1f5f8 !important;
+    background-color: rgba(255,255,255,0.45) !important;
 }
 
 .jumbotron {

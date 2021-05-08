@@ -80,6 +80,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# django3.2.2
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # todo:配置默认数据库
 # DATABASES = {

@@ -65,4 +65,13 @@
         {% load my_tags %}
         {% get_side_right_style request %}
     </div>
+    <script>
+        $.ajax({
+            type: "POST",
+            url: "https://www.helloxjn.com/log/",
+            data: {
+                'web': 'blog',
+            },
+        });
+    </script>
 {% endblock %}

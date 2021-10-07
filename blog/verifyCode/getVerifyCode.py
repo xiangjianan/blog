@@ -29,7 +29,8 @@ def get_verify_code_img(request):
     elif system() == 'Darwin':
         path_ttc = '/System/Library/Fonts/Supplemental/Songti.ttc'
     else:
-        path_ttc = '/usr/share/fonts/dejavu/DejaVuSans.ttf'
+        # path_ttc = '/usr/share/fonts/dejavu/DejaVuSans.ttf'
+        path_ttc = '/root/static/blog_static/Songti.ttc'
     font = ImageFont.truetype(path_ttc, 30)
     for i in range(4):
         word = get_random_word()
